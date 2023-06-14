@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile page</title>
+</head>
+<body>
+    <!-- A variable to be displayed on the page -->
+    <% if(userObject) {%>
+    <h2>Welcome <%= userObject.email %></h2>
+    <!-- Will not render the userObject variable on the page -->
+    <!-- <h2>Welcome <% userObject %></h2> -->
+    <form action="/logout" method="POST">
+        <input type="submit" value="Logout"/>
+    </form>
+    <% } else { %>
+        <h2>Please login before visiting this page</h2>
+        <form action="/login" method="GET">
+            <input type="submit" value="Login"/>
+        </form>
+    <% }%>
+</body>
+</html>
